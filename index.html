@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+</head>
+<body>
+    <div id="countdown">
+        Redirecting you to IT Club website in <span id="timer">5</span> seconds...
+    </div>
+
+    <script>
+        // Define the array of websites
+        var websites = ["https://itclub.000.pe"];
+
+        // Get the last element of the array
+        var lastWebsite = websites[websites.length - 1];
+
+        // Function to update the countdown
+        function updateCountdown(seconds) {
+            var timerElement = document.getElementById("timer");
+            timerElement.textContent = seconds;
+
+            if (seconds <= 0) {
+                // Redirect to the last website
+                window.location.href = lastWebsite;
+            } else {
+                // Continue the countdown
+                setTimeout(function () {
+                    updateCountdown(seconds - 1);
+                }, 1000);
+            }
+        }
+
+        // Start the countdown
+        updateCountdown(5);
+    </script>
+</body>
+</html>
