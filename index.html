@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="components/style.css" type="text/css" media="all" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  
+  <style></style>
+  
+</head>
+<body>
+  
+  <header class="topBar">
+    <span class="topBar_Name">Om</span>
+    <span class="topBar_Toggler bars">
+      <div class="topBar_Toggler__Bar1"></div>
+      <div class="topBar_Toggler__Bar2"></div>
+      <div class="topBar_Toggler__Bar3"></div>
+    </span>
+    <div class="topBar_Content">
+      <ul class="topBar_Content__List">
+        <li class="topBar_Content__listItem">
+          <a href="#">Home</a>
+        </li>
+        <li class="topBar_Content__listItem">
+          <a href="#">Projects</a>
+        </li>
+        <li class="topBar_Content__listItem">
+          <a href="#">Experience</a>
+        </li>
+        <li class="topBar_Content__listItem">
+          <a href="#">About me</a>
+        </li>
+        <li class="topBar_Content__listItem">
+          <a href="#">Contact me</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  
+  <section class="topHead">
+    <div class="topHead_imgDiv">
+      <img class="topHead_img" src="images/1703490399666.png" alt="" />
+    </div>
+    <div class="topHead_Content">
+      <span class="topHead_Content__name">
+        Omprakash Kumar
+      </span>
+      <p class="topHead_Content__iam">
+        I'm <span class="iam"></span>
+      </p>
+      <p class="topHead_Content__desc">
+        Crafting user-friendly websites. Transforming ideas into digital solutions. Simplifying your web experiences.
+      </p>
+      <div class="topHead_Content__reachMe">
+        <a class="hireMe" href="#">Hire Me</a>
+        <a class="downloadCv" href="#">Download CV <i class="fas fa-file-alt"></i></a>
+      </div>
+      <div class="topHead_Content__socials">
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-github"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-whatsapp"></a>
+        <a href="#" class="fas fa-envelope"></a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="main">
+    <div class="main_aboutMe">
+        <h1>About Me</h1>
+        <div class="main_aboutMe__Intro">
+            <p class="main_aboutMe__IntroPara">
+              I'm a committed developer focused on creating innovative digital solutions centered around users. Proficient in frontend, backend, and full-stack development, I excel in translating intricate concepts into intuitive, user-friendly experiences. My aim is to streamline the web and build impactful solutions that deeply connect with users.
+            </p>
+            <a href="#" class="downloadCv">Download CV <i class="fas fa-download"></i></a>
+          </div>
+      </div>
+    <div class="main_skills">
+      <h1>My Skills</h1>
+      <div class="main_skills__div">
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- <script src="eruda.js"></script> -->
+  <script src="components/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  
+  <script>
+  let data;
+   fetch('components/data.json')
+  .then(response => response.json())
+  .then(jsonData => {
+    data = jsonData;
+    
+    typeText();
+    
+    for(let s = 0; s < data.skills.length; s++){
+      skill = data.skills[s]
+      skillTitle = skill[0];
+      skillEff = skill[1];
+      
+      skillHtml = `
+      <div class="main_skills__skill">
+          <span class="skill_title">${skillTitle} (${skillEff}%)</span>
+          <div class="skillMeter">
+            <div class="skill_eff" style="width:${skillEff}%"></div>
+          </div>
+        </div>
+      `;
+      $('.main_skills__div').append(skillHtml);
+    }
+   
+  })
+  </script>
+  <script>
+    $('.topBar_Toggler').click(function(){
+      if($(this).hasClass('bars')){
+        $('.topBar_Content').fadeIn(200)
+        
+        $(this).removeClass('bars')
+        $(this).addClass('times')
+        
+        $('.topBar_Toggler__Bar1').addClass('timesBar');
+        $('.topBar_Toggler__Bar2').hide(100);
+        $('.topBar_Toggler__Bar3').addClass('timesBar');
+        
+        $('.topBar_Content__listItem a').addClass('active')
+      }else{
+        $('.topBar_Content').fadeOut(200)
+        
+        $(this).removeClass('times')
+        $(this).addClass('bars')
+        
+        $('.topBar_Toggler__Bar1').removeClass('timesBar');
+        $('.topBar_Toggler__Bar2').show(150);
+        $('.topBar_Toggler__Bar3').removeClass('timesBar');
+        
+        $('.topBar_Content__listItem a').removeClass('active')
+      }
+    })
+    
+const span = document.querySelector('.iam');
+
+let index = 0;
+let dataIndex = 0;
+let textIndex = 0;
+let timeout;
+
+function typeText() {
+  const currentText = data.iam[dataIndex];
+  span.textContent = currentText.slice(0, textIndex);
+  textIndex++;
+  if (textIndex > currentText.length) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      span.textContent = '';
+      dataIndex = (dataIndex + 1) % data.iam.length;
+      textIndex = 0;
+      typeText();
+    }, 2000);
+  } else {
+    timeout = setTimeout(typeText, 120);
+  }
+}
+    
+  </script>
+
+</body>
+</html>
