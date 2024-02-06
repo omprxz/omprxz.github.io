@@ -1,17 +1,17 @@
 {
   "iam": ["Front-end Dev",
     "Back-end Dev",
-    "Full stack dev",
-    "Web Developer"],
+    "Full-stack Dev"],
   "skills": [
     ["HTML", 100],
-    ["JavaScript", 90],
-    ["MySQL", 85],
-    ["CSS", 90],
-    ["React", 50],
-    ["PHP", 90],
-    ["Python", 60],
-    ["Java", 30],
-    ["C++", 50]
+    ["JavaScript", 100],
+    ["MySQL", 100],
+    ["CSS", 100],
+    ["Node.js", 100],
+    ["React", 100],
+    ["PHP", 100],
+    ["Python", 100],
+    ["Java", 95],
+    ["C++", 90]
   ]
 }
