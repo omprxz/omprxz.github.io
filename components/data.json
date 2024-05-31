@@ -1,17 +1,21 @@
 {
   "iam": ["Front-end Dev",
     "Back-end Dev",
-    "Full-stack Dev"],
+    "Full-stack Dev", "MERN Developer"],
   "skills": [
-    ["HTML", 100],
     ["JavaScript", 100],
-    ["MySQL", 100],
-    ["CSS", 100],
+    ["Python", 100],
+    ["PHP", 100],
+    ["Java", 95],
+    ["C++", 90],
     ["Node.js", 100],
     ["React", 100],
-    ["PHP", 100],
-    ["Python", 100],
-    ["Java", 95],
-    ["C++", 90]
+    ["Express", 100],
+    ["Tailwind", 100],
+    ["MySQL", 100],
+    ["MongoDB", 100],
+    ["PostreSQL", 100],
+    ["HTML", 100],
+    ["CSS", 100]
   ]
 }
