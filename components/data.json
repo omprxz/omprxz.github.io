@@ -4,18 +4,44 @@
     "Full-stack Dev", "MERN Developer"],
   "skills": [
     ["JavaScript", 100],
-    ["Python", 100],
+    ["Python", 90],
     ["PHP", 100],
     ["Java", 95],
-    ["C++", 90],
+    ["C++", 50],
     ["Node.js", 100],
     ["React", 100],
     ["Express", 100],
     ["Tailwind", 100],
     ["MySQL", 100],
-    ["MongoDB", 100],
     ["PostreSQL", 100],
+    ["MongoDB", 100],
     ["HTML", 100],
     ["CSS", 100]
+  ],
+  "projects": [
+    {
+      "title": "Codylo",
+      "description": "AI Code assistant that generates code, fixes code bugs, and converts images to HTML, CSS, and JavaScript using AI.",
+      "link": "https://codylo.vercel.app",
+      "tech": "React, MongoDB, Node.js, Express, AI"
+    },
+    {
+      "title": "FitTrack",
+      "description": "A comprehensive fitness tracking app that allows users to securely log and monitor their daily progress, including photos, weight, height, and body fat percentage.",
+      "link": "https://fittracknow.vercel.app",
+      "tech": "React, MongoDB, Node.js, Express"
+    },
+    {
+      "title": "MarkEd",
+      "description": "Period Wise Attendance Marker that simplifies tracking student attendance on a per-period basis, assigning marks, and providing insights for students and teachers.",
+      "link": "https://marked-period.free.nf",
+      "tech": "PHP, Javascript, MySQL, HTML/CSS"
+    },
+    {
+      "title": "IT Club Website",
+      "description": "Developed a comprehensive IT Club website using PHP, integrating an AI Chatbot, a Blog CMS with translation and audio features, and an admin panel for managing notices, events, blogs, and other administrative tasks.",
+      "link": "https://itclub.000.pe",
+      "tech": "PHP, Javascript, MySQL, HTML/CSS"
+    }
   ]
 }

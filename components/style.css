@@ -298,3 +298,64 @@ body {
   z-index: 2;
   background-color: #7430ee;
 }
+.projects {
+  padding: 40px 20px;
+  background-color: var(--bg-color);
+  text-align: center;
+}
+
+.projects h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--default-text);
+  font-family: 'Josefin Sans';
+}
+
+.projects__div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.project {
+  background: var(--bg-color);
+  box-shadow: 6px 6px 15px 2px rgba(0,0,0,0.2);
+  border-radius: 1.4rem;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--default-text);
+  font-family: 'Josefin Sans';
+}
+
+.project p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: var(--default-desc);
+  font-family: 'Josefin Sans';
+}
+
+.project a {
+  font-size: 1rem;
+  color: #7430ee;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.project .techStack{
+  line-height: 1.25rem;
+}
+.project a:hover {
+  color: #339099;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}

@@ -6,10 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Omprakash</title>
   <link rel="stylesheet" href="components/style.css" type="text/css" media="all" />
-  
+  <link rel="icon" type="image/png" href="./favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-  
 </head>
 <body>
   
@@ -26,7 +25,7 @@
           <a href="#">Home</a>
         </li>
         <li class="topBar_Content__listItem">
-          <a href="#aboutMe">Projects</a>
+          <a href="#projects">Projects</a>
         </li>
         <li class="topBar_Content__listItem">
           <a href="#skills">Skills</a>
@@ -56,7 +55,7 @@
         Crafting user-friendly websites. Transforming ideas into digital solutions. Simplifying your web experiences.
       </p>
       <div class="topHead_Content__reachMe">
-        <a class="hireMe" target="_blank" href="https://api.whatsapp.com/send?phone=916200181564&text=Hello, I want to hire you for my work.">Hire Me</a>
+        <a class="hireMe" target="_blank" href="https://api.whatsapp.com/send?phone=916200181564&text=Hello, I get done a project by you.">Contact Me</a>
         <a class="downloadCv" target="_blank" href="components/om-resume.pdf" download>Download CV <i class="fas fa-file-alt"></i></a>
       </div>
       <div class="topHead_Content__socials pt-3" id="socialContacts">
@@ -72,103 +71,111 @@
   <section class="main">
     <div class="main_skills" id="skills">
       <h1>My Skills</h1>
-      <div class="main_skills__div">
-      </div>
+      <div class="main_skills__div"></div>
     </div>
     <div class="main_aboutMe" id="aboutMe">
-        <h1>About Me</h1>
-        <div class="main_aboutMe__Intro">
-            <p class="main_aboutMe__IntroPara">
-              I'm a committed developer focused on creating innovative digital solutions centered around users. Proficient in frontend, backend, and full-stack development, I excel in translating intricate concepts into intuitive, user-friendly experiences. My aim is to streamline the web and build impactful solutions that deeply connect with users.
-            </p>
-            <a href="components/om-portfolio.pdf" class="downloadCv" download>Download Portfolio<i class="fas fa-download"></i></a>
-          </div>
+      <h1>About Me</h1>
+      <div class="main_aboutMe__Intro">
+        <p class="main_aboutMe__IntroPara">
+          I'm a committed developer focused on creating innovative digital solutions centered around users. Proficient in frontend, backend, and full-stack development, I excel in translating intricate concepts into intuitive, user-friendly experiences. My aim is to streamline the web and build impactful solutions that deeply connect with users.
+        </p>
+        <a href="components/om-resume.pdf" class="downloadCv" download>Download Resume<i class="fas fa-download"></i></a>
       </div>
+    </div>
   </section>
   
+  <section class="projects" id="projects">
+    <h1>My Projects</h1>
+    <div class="projects__div"></div>
+  </section>
   
-  <!-- <script src="eruda.js"></script> -->
   <script src="components/script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   
   <script>
-  let data;
-   fetch('components/data.json')
-  .then(response => response.json())
-  .then(jsonData => {
-    data = jsonData;
-    
-    typeText();
-    
-    for(let s = 0; s < data.skills.length; s++){
-      skill = data.skills[s]
-      skillTitle = skill[0];
-      skillEff = skill[1];
-      
-      skillHtml = `
-      <div class="main_skills__skill">
-          <span class="skill_title">${skillTitle} (${skillEff}%)</span>
-          <div class="skillMeter">
-            <div class="skill_eff" style="width:${skillEff}%"></div>
+    let data;
+    fetch('components/data.json')
+      .then(response => response.json())
+      .then(jsonData => {
+        data = jsonData;
+        
+        typeText();
+        
+        for(let s = 0; s < data.skills.length; s++){
+          skill = data.skills[s];
+          skillTitle = skill[0];
+          skillEff = skill[1];
+          
+          skillHtml = `
+          <div class="main_skills__skill">
+              <span class="skill_title">${skillTitle} (${skillEff}%)</span>
+              <div class="skillMeter">
+                <div class="skill_eff" style="width:${skillEff}%"></div>
+              </div>
+            </div>
+          `;
+          $('.main_skills__div').append(skillHtml);
+        }
+
+        for(let p = 0; p < data.projects.length; p++){
+          project = data.projects[p];
+          projectTitle = project.title;
+          projectDesc = project.description;
+          projectLink = project.link;
+          projectTech = project.tech;
+
+          projectHtml = `
+          <div class="project">
+            <h2>${projectTitle}</h2>
+            <p>${projectDesc}</p>
+            <p class="techStack">Tech Stack: ${projectTech}</p>
+            <a href="${projectLink}" target="_blank">View Project</a>
           </div>
-        </div>
-      `;
-      $('.main_skills__div').append(skillHtml);
-    }
-   
-  })
-  </script>
-  <script>
+          `;
+          $('.projects__div').append(projectHtml);
+        }
+      });
+
     $('.topBar_Toggler').click(function(){
       if($(this).hasClass('bars')){
-        $('.topBar_Content').fadeIn(200)
-        
-        $(this).removeClass('bars')
-        $(this).addClass('times')
-        
+        $('.topBar_Content').fadeIn(200);
+        $(this).removeClass('bars').addClass('times');
         $('.topBar_Toggler__Bar1').addClass('timesBar');
         $('.topBar_Toggler__Bar2').hide(100);
         $('.topBar_Toggler__Bar3').addClass('timesBar');
-        
-        $('.topBar_Content__listItem a').addClass('active')
+        $('.topBar_Content__listItem a').addClass('active');
       }else{
-        $('.topBar_Content').fadeOut(200)
-        
-        $(this).removeClass('times')
-        $(this).addClass('bars')
-        
+        $('.topBar_Content').fadeOut(200);
+        $(this).removeClass('times').addClass('bars');
         $('.topBar_Toggler__Bar1').removeClass('timesBar');
         $('.topBar_Toggler__Bar2').show(150);
         $('.topBar_Toggler__Bar3').removeClass('timesBar');
-        
-        $('.topBar_Content__listItem a').removeClass('active')
+        $('.topBar_Content__listItem a').removeClass('active');
       }
-    })
-    
-const span = document.querySelector('.iam');
+    });
 
-let index = 0;
-let dataIndex = 0;
-let textIndex = 0;
-let timeout;
+    const span = document.querySelector('.iam');
+    let index = 0;
+    let dataIndex = 0;
+    let textIndex = 0;
+    let timeout;
 
-function typeText() {
-  const currentText = data.iam[dataIndex];
-  span.textContent = currentText.slice(0, textIndex);
-  textIndex++;
-  if (textIndex > currentText.length) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      span.textContent = '';
-      dataIndex = (dataIndex + 1) % data.iam.length;
-      textIndex = 0;
-      typeText();
-    }, 2000);
-  } else {
-    timeout = setTimeout(typeText, 120);
-  }
-}
-    
+    function typeText() {
+      const currentText = data.iam[dataIndex];
+      span.textContent = currentText.slice(0, textIndex);
+      textIndex++;
+      if (textIndex > currentText.length) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          span.textContent = '';
+          dataIndex = (dataIndex + 1) % data.iam.length;
+          textIndex = 0;
+          typeText();
+        }, 2000);
+      } else {
+        timeout = setTimeout(typeText, 120);
+      }
+    }
   </script>
 
 </body>
