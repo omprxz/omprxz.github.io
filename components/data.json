@@ -10,6 +10,8 @@
     ["C++", 50],
     ["Node.js", 100],
     ["React", 100],
+    ["React Native", 100],
+    ["Next.js", 100]
     ["Express", 100],
     ["Tailwind", 100],
     ["MySQL", 100],
@@ -19,6 +21,12 @@
     ["CSS", 100]
   ],
   "projects": [
+    {
+      "title": "LearnrX",
+      "description": "Generate Quizzes using and test your skill set or studies.",
+      "link": "https://quizai-eta.vercel.app",
+      "tech": "Next.js, MongoDB, Node.js, AI"
+    },
     {
       "title": "Codylo",
       "description": "AI Code assistant that generates code, fixes code bugs, and converts images to HTML, CSS, and JavaScript using AI.",
