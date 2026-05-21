@@ -1229,7 +1229,7 @@ ${email?`<tr><td style="padding:12px 0;border-bottom:1px solid rgba(255,215,0,.0
 </body></html>`;
 
   try{
-    const res=await fetch('https://omprxz.vercel.app/apis/mail/send',{
+    const res=await fetch('https://omprxzapis.vercel.app/apis/mail/send',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({to:'omprxz@gmail.com',subject:`[Portfolio] New Inquiry from ${name}`,body})
