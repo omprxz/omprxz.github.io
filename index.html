@@ -11,13 +11,13 @@
 <style>
 :root{
   --obs:#050507;--obs2:#08080d;--obs3:#0d0d14;
-  --gold:#FFD700;--gold-w:#F5C842;--gold-r:#C9962E;--gold-d:#8B6914;--gold-p:#FFF3B0;
+  --gold:#FFD700;--gold-w:#F5C842;--gold-r:#C9962E;--gold-d:#B8891A;--gold-p:#FFF3B0;
   --gg:linear-gradient(135deg,#FFF3B0 0%,#FFD700 28%,#F5C842 50%,#C9962E 75%,#8B6914 100%);
   --gg2:linear-gradient(135deg,#FFD700 0%,#F5C842 40%,#C9962E 80%,#8B6914 100%);
   --gt:linear-gradient(135deg,#FFF3B0 0%,#FFD700 40%,#C9962E 100%);
   --glow:0 0 40px rgba(197,150,30,.15),0 0 80px rgba(197,150,30,.06);
   --glows:0 0 20px rgba(255,215,0,.35),0 0 60px rgba(197,150,30,.22);
-  --txt:#F5F0E8;--muted:#7A7468;--dim:#3D3A35;
+  --txt:#F5F0E8;--muted:#D2C9BE;--dim:#9C958C;
   --serif:'Cormorant Garamond',Georgia,serif;
   --sans:'Outfit',sans-serif;
   --mono:'JetBrains Mono',monospace;
@@ -56,19 +56,20 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 .reveal.in{opacity:1;transform:none}
 
 /* ═══ NAV ═══ */
-nav{position:fixed;top:0;inset-x:0;z-index:500;display:flex;align-items:center;justify-content:space-between;
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;
 padding:1.3rem 4rem;background:rgba(5,5,7,.65);backdrop-filter:blur(24px) saturate(1.5);
 border-bottom:1px solid rgba(255,215,0,.06);transition:all .4s}
 nav.s{padding:.9rem 4rem;background:rgba(5,5,7,.94);border-bottom-color:rgba(255,215,0,.15);box-shadow:0 4px 40px rgba(0,0,0,.7)}
 .n-logo{font-family:var(--cursive);font-size:2.2rem;text-decoration:none;letter-spacing:.04em;
 background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-filter:drop-shadow(0 0 12px rgba(197,150,30,.5));line-height:1}
+filter:drop-shadow(0 0 12px rgba(197,150,30,.5));line-height:1;flex-shrink:0}
+.n-right{display:flex;align-items:center;gap:2rem}
 .n-links{display:flex;gap:2.2rem;list-style:none}
 .n-links a{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s;position:relative;padding-bottom:2px}
 .n-links a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gg);transform:scaleX(0);transition:transform .3s;transform-origin:center}
 .n-links a:hover,.n-links a.act{color:var(--gold-w)}
 .n-links a:hover::after,.n-links a.act::after{transform:scaleX(1)}
-.n-hire{position:relative;padding:.6rem 1.5rem;font-family:var(--mono);font-size:.66rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--obs);text-decoration:none;background:var(--gg2);transition:transform .25s,box-shadow .25s;overflow:hidden}
+.n-hire{position:relative;padding:.6rem 1.5rem;font-family:var(--mono);font-size:.66rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--obs);text-decoration:none;background:var(--gg2);transition:transform .25s,box-shadow .25s;overflow:hidden;white-space:nowrap}
 .n-hire::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.28),transparent 60%);pointer-events:none}
 .n-hire:hover{transform:translateY(-2px);box-shadow:var(--glows)}
 /* hamburger */
@@ -77,11 +78,16 @@ filter:drop-shadow(0 0 12px rgba(197,150,30,.5));line-height:1}
 .n-ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .n-ham.open span:nth-child(2){opacity:0}
 .n-ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.n-mob{display:none;position:fixed;inset:0;top:65px;background:rgba(5,5,7,.97);backdrop-filter:blur(20px);z-index:499;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
-.n-mob.open{display:flex}
-.n-mob a{font-family:var(--serif);font-size:2rem;font-weight:600;text-decoration:none;color:var(--txt);transition:color .2s}
-.n-mob a:hover{color:var(--gold-w)}
-@media(max-width:900px){nav{padding:1rem 1.5rem}.n-links,.n-hire{display:none}.n-ham{display:flex;margin-left:auto}nav.s{padding:.8rem 1.5rem}}
+.n-mob{position:fixed;top:0;right:-320px;width:300px;height:100vh;background:rgba(5,5,7,.98);backdrop-filter:blur(24px);z-index:499;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-start;padding:7rem 2.5rem 2.5rem;gap:1.8rem;transition:right .4s cubic-bezier(0.16, 1, 0.3, 1), visibility .4s;border-left:1px solid rgba(255,215,0,.08);box-shadow:-15px 0 40px rgba(0,0,0,.6);visibility:hidden}
+.n-mob.open{right:0;visibility:visible}
+.n-mob a{font-family:var(--mono);font-size:.9rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .2s,padding-right .2s;width:100%;border-bottom:1px solid rgba(255,215,0,.04);padding-bottom:.6rem;text-align:right}
+.n-mob a:hover{color:var(--gold-w);padding-right:8px}
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  nav.s{padding:.8rem 1.5rem}
+  .n-links,.n-hire{display:none}
+  .n-ham{display:flex}
+}
 
 /* ═══ HERO ═══ */
 #home{min-height:100vh;position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 4rem;overflow:hidden}
@@ -133,7 +139,7 @@ filter:drop-shadow(0 0 28px rgba(197,150,30,.45))}
 .tr{top:-1px;right:-1px;border-top:2px solid var(--gold);border-right:2px solid var(--gold)}
 .bl{bottom:-1px;left:-1px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold)}
 .br{bottom:-1px;right:-1px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold)}
-.fb{position:absolute;background:rgba(8,8,13,.92);border:1px solid rgba(255,215,0,.2);padding:.7rem 1rem;backdrop-filter:blur(16px)}
+.fb{position:absolute;background:rgba(8,8,13,.92);border:1px solid rgba(255,215,0,.2);padding:.7rem 1rem;backdrop-filter:blur(16px);z-index:4}
 .fb.r{top:1.5rem;right:-2.2rem}
 .fb.l{bottom:2.5rem;left:-2.2rem}
 .fb-l{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
@@ -377,6 +383,118 @@ footer{background:var(--obs2);border-top:1px solid rgba(255,215,0,.08);padding:2
 .foot-links{display:flex;gap:1.8rem;flex-wrap:wrap}
 .foot-links a{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
 .foot-links a:hover{color:var(--gold-w)}
+
+/* ═══ FLOATING ACTIONS ═══ */
+.float-btn-group {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+.float-btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.2), inset 0 -2px 4px rgba(0,0,0,0.2);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+.float-btn i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+/* Green glossy 3D WhatsApp Icon */
+.float-btn.wa {
+  background: linear-gradient(135deg, #2ae774 0%, #128c7e 100%);
+  border: 1px solid rgba(37, 211, 102, 0.5);
+  color: #fff;
+  animation: floatGlow 3s infinite ease-in-out;
+}
+.float-btn.wa::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 10%;
+  width: 80%;
+  height: 35%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+  border-radius: 50% / 20%;
+  pointer-events: none;
+}
+.float-btn.wa:hover {
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+}
+/* Golden glossy 3D Call Icon */
+.float-btn.call {
+  background: var(--gg2);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  color: var(--obs);
+  animation: floatGlowCall 3s infinite ease-in-out 1.5s;
+}
+.float-btn.call::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 10%;
+  width: 80%;
+  height: 35%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  border-radius: 50% / 20%;
+  pointer-events: none;
+}
+.float-btn.call:hover {
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 15px 30px rgba(255, 215, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+}
+/* Attention grabbing animations */
+@keyframes floatGlow {
+  0%, 100% { box-shadow: 0 10px 25px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.2); }
+  50% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.7), 0 0 20px rgba(37, 211, 102, 0.5), inset 0 2px 4px rgba(255,255,255,0.3); }
+}
+@keyframes floatGlowCall {
+  0%, 100% { box-shadow: 0 10px 25px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.2); }
+  50% { box-shadow: 0 10px 30px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.5), inset 0 2px 4px rgba(255,255,255,0.3); }
+}
+/* Labels */
+.float-btn::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 65px;
+  background: rgba(8, 8, 13, 0.95);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  color: var(--txt);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.float-btn:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
 </style>
 </head>
 <body>
@@ -387,17 +505,19 @@ footer{background:var(--obs2);border-top:1px solid rgba(255,215,0,.08);padding:2
 <!-- ═══ NAV ═══ -->
 <nav id="nav">
   <a class="n-logo" href="#home">Om</a>
-  <ul class="n-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#resume">Experience</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#portfolio">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a class="n-hire" href="#contact">Hire Me</a>
-  <button class="n-ham" id="ham" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="n-right">
+    <ul class="n-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#resume">Experience</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="n-hire" href="#contact">Hire Me</a>
+    <button class="n-ham" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 <div class="n-mob" id="nmob">
   <a href="#about" onclick="closeMob()">About</a>
@@ -1131,5 +1251,14 @@ ${email?`<tr><td style="padding:12px 0;border-bottom:1px solid rgba(255,215,0,.0
   }
 });
 </script>
+  <!-- Floating 3D Action Buttons -->
+  <div class="float-btn-group">
+    <a class="float-btn wa" href="https://wa.me/916200181564" target="_blank" data-label="WhatsApp" aria-label="WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a class="float-btn call" href="tel:+916200181564" data-label="Call Me" aria-label="Call Phone">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+  </div>
 </body>
 </html>
